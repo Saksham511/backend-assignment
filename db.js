@@ -1,6 +1,6 @@
 import { createPool } from "mysql";
 
-const poolconn = createPool({
+const pool = createPool({
         connectionLimit:10,
         host: "localhost",
         database: "sales management",
@@ -8,4 +8,4 @@ const poolconn = createPool({
         password: ""
     });
 
-export default poolconn;
+export default pool;

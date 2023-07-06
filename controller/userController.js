@@ -1,22 +1,27 @@
 
-import poolconn from "../db.js";
+import pool from "../db.js";
 
-export const userFunction= (req,res)=>{
-    poolconn.getConnection(function(error,connection){
+
+
+export const CreateUser= (req,res)=>{
+    console.log(req.body);
+    var {id,firstName,lastName,phoneNumber,email,password,confirmPassword}=req.body;
+    pool.getConnection(function(error,connection){
         if (error) 
         {
-            throw error;
             res.send('Error Occured');
         }
         else 
         {
-            connection.query('select * from user', function(err2,records,fields){
-                if (!err2){
-                    res.send(records);
-                    console.log(records);
-                }
-                connection.release()
-            })
+            var sql= "INSERT INTO user (id,firstName,lastName,phoneNumber,email,password,confirmPassword) VALUES ?";
+            var values=[
+                [id,firstName,lastName,phoneNumber,email,password,confirmPassword]
+            ];
+            connection.query(sql,[values], function(error,result){
+                if (error) throw error;
+                res.send('Registration Successful');
+                console.log('Registration Successful');
+            });
         }
     });
 };

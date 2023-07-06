@@ -1,15 +1,16 @@
-import { createConnection } from "mysql";
+import { createPool } from "mysql";
 
 const connect=()=>{
 
-    const connection = createConnection({
+    const pool = createPool({
+        connectionLimit:10,
         host: "localhost",
         database: "sales management",
         user: "root",
         password: ""
     });
 
-    connection.connect(function(error){
+    pool.getConnection(function(error,connection){
         if (error) 
         {
             throw error;

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Backend assignment by Saksham Shrestha",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
@@ -13,5 +14,10 @@
     "node"
   ],
   "author": "Saksham Shrestha",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22"
+  }
 }

@@ -6,7 +6,7 @@ import userRouter from "./router/userRouter.js";
 const app= express();
 dotenv.config();
 
-connect();
+// connect();
 app.use("/user",userRouter);
 app.listen(process.env.PORT,console.log(`Server is listening at port: ${process.env.PORT}`));
 

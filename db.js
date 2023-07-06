@@ -1,8 +1,6 @@
 import { createPool } from "mysql";
 
-const connect=()=>{
-
-    const pool = createPool({
+const poolconn = createPool({
         connectionLimit:10,
         host: "localhost",
         database: "sales management",
@@ -10,15 +8,4 @@ const connect=()=>{
         password: ""
     });
 
-    pool.getConnection(function(error,connection){
-        if (error) 
-        {
-            throw error;
-        }
-        else 
-        {
-            console.log('MySQL database is connected Successfully');
-        }
-    });
-};
-export default connect;
+export default poolconn;
